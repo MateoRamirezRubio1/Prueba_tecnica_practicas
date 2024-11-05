@@ -1,0 +1,18 @@
+SELECT 
+    Red, 
+    Tipo, 
+    EXTRACT(YEAR FROM Fecha) AS Año, 
+    EXTRACT(MONTH FROM Fecha) AS Mes, 
+    SUM(Cant_Casos) AS Cant_Casos
+FROM 
+    df_casos_union
+GROUP BY 
+    Red, 
+    Tipo, 
+    EXTRACT(YEAR FROM Fecha), 
+    EXTRACT(MONTH FROM Fecha)
+ORDER BY 
+    Red, 
+    Tipo, 
+    Año, 
+    Mes;
